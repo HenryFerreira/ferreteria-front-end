@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import ListarClientes from "./ClienteView";
-import DefaultPage from "./DefaultPage"
-import ListarFacturas from "./pages/FacturaView";
+import ListarClientes from "./pages/ClienteView";
+import DefaultPage from "./pages/DefaultPage"
+import ListarFacturas from "./pages/FacturaView"
 
 function AdminView() {
   return (

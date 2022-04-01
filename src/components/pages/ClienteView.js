@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { URL_BASE } from '../config';
+import { URL_BASE } from '../../config';
 
 const ListarClientes = () => {
     const [clientes, setClientes] = useState([]);
