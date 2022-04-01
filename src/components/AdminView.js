@@ -14,16 +14,20 @@ function AdminView() {
         <BrowserRouter>
           <nav>
             <div>
-              <Link to="/">Inicio</Link>
-              {"  "}
-              <Link to="/cliente">Listar Cliente</Link>
-              {"  "}
-              <Link to="/factura">Listar Facturas</Link>
-              {"  "}
-              <Link to="/producto">Listar Productos</Link>
+
+              <div>
+                <Link to="/">Inicio</Link>
+                {"  "}
+                <Link to="/cliente">Listar Cliente</Link>
+                {"  "}
+                <Link to="/factura">Listar Facturas</Link>
+                {"  "}
+                <Link to="/producto">Listar Productos</Link>
+              </div>
+
             </div>
           </nav>
-          <br/>
+          <br />
           <Routes>
             <Route path="/" element={<DefaultPage />} />
             <Route path="/cliente" element={<ListarClientes />} />
