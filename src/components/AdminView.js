@@ -9,20 +9,28 @@ import ListarProductos from "./pages/ProductoView";
 function AdminView() {
   return (
     <div>
-      Hola, admin
       <div>
         <BrowserRouter>
           <nav>
             <div>
 
+
+              <Link to="/" className="link-dark">Inicio</Link>
               <div>
-                <Link to="/">Inicio</Link>
-                {"  "}
                 <Link to="/cliente">Listar Cliente</Link>
                 {"  "}
                 <Link to="/factura">Listar Facturas</Link>
                 {"  "}
                 <Link to="/producto">Listar Productos</Link>
+              </div>
+
+
+              <div>
+                <Link to="/cliente" className="link-success">Agregar Cliente</Link>
+                {"  "}
+                <Link to="/factura" className="link-success">Agregar Facturas</Link>
+                {"  "}
+                <Link to="/producto" className="link-success">Agregar Productos</Link>
               </div>
 
             </div>
