@@ -5,6 +5,7 @@ import ListarClientes from "./pages/ClienteView";
 import DefaultPage from "./pages/DefaultPage"
 import ListarFacturas from "./pages/FacturaView"
 import ListarProductos from "./pages/ProductoView";
+import ClienteInsert from "./pages/creation/ClienteInsert";
 
 function AdminView() {
   return (
@@ -13,8 +14,6 @@ function AdminView() {
         <BrowserRouter>
           <nav>
             <div>
-
-
               <Link to="/" className="link-dark">Inicio</Link>
               <div>
                 <Link to="/cliente">Listar Cliente</Link>
@@ -26,7 +25,7 @@ function AdminView() {
 
 
               <div>
-                <Link to="/cliente" className="link-success">Agregar Cliente</Link>
+                <Link to="/cliente/insert" className="link-success">Agregar Cliente</Link>
                 {"  "}
                 <Link to="/factura" className="link-success">Agregar Facturas</Link>
                 {"  "}
@@ -41,6 +40,7 @@ function AdminView() {
             <Route path="/cliente" element={<ListarClientes />} />
             <Route path="/factura" element={<ListarFacturas />} />
             <Route path="/producto" element={<ListarProductos />} />
+            <Route path="/cliente/insert" element={<ClienteInsert />} />
           </Routes>
         </BrowserRouter>
       </div>
