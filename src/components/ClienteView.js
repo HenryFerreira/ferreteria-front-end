@@ -6,11 +6,11 @@ const ListarClientes = () => {
     const [clientes, setClientes] = useState([]);
 
     useEffect(() => {
-        cargarFacturas();
+        cargarClientes();
 
     }, []);
 
-    const cargarFacturas = () => {
+    const cargarClientes = () => {
         const requestOptions = {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
@@ -30,9 +30,9 @@ const ListarClientes = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Tarea</th>
-                        <th>¿Completado?</th>
+                        <th>Nombre</th>
+                        <th>Celular</th>
+                        <th>DNI</th>
                     </tr>
                 </thead>
                 <tbody>
