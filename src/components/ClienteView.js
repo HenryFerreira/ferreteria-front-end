@@ -16,7 +16,7 @@ const ListarClientes = () => {
             headers: { 'Content-Type': 'application/json' },
         };
 
-        fetch(URL_BASE+"/cliente", requestOptions)
+        fetch(URL_BASE + "/cliente", requestOptions)
             .then(response => response.json())
             .then((p) => {
                 setClientes(p);
