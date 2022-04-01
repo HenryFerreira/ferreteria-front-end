@@ -1,10 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { URL_BASE } from '../../config';
-import Productos from './ProductoList';
 
-const ListarFacturas = () => {
-    const [facturas, setFacturas] = useState([]);
+const ListarProductos = () => {
+    const [productos, setProductos] = useState([]);
 
     useEffect(() => {
         cargarFacturas();
@@ -17,10 +16,10 @@ const ListarFacturas = () => {
             headers: { 'Content-Type': 'application/json' },
         };
 
-        fetch(URL_BASE + "/factura", requestOptions)
+        fetch(URL_BASE + "/inventario", requestOptions)
             .then(response => response.json())
             .then((p) => {
-                setFacturas(p);
+                setProductos(p);
             });
     }
 
@@ -32,26 +31,25 @@ const ListarFacturas = () => {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Fecha</th>
-                        <th>Nombre Cliente</th>
-                        <th>Nombre de quien Atiende</th>
-                        <th>Productos</th>
-                        <th>Precio Total</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Proveedor</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {facturas.map((factura) => {
-                        let productos = factura.productos;
+                    {productos.map((producto) => {
                         return (
                             <tr>
-                                <td>{factura.facturaID}</td>
-                                <td>{factura.feche}</td>
-                                <td>{factura.nombreCliente}</td>
-                                <td>{factura.nombreAtendio}</td>
+                                <td>{producto.productoID}</td>
+                                <td>{producto.nombre}</td>
+                                <td>{producto.precio}</td>
                                 <td>
-                                   <Productos productos={productos}/>
+                                    <ul>
+                                        <li>{producto.proveedor.nombre}</li>
+                                        <li>{producto.proveedor.celular}</li>
+                                        <li>{producto.proveedor.documentoIdentidad}</li>                                        
+                                    </ul>
                                 </td>
-                                <td>{factura.precioTotal}</td>
                             </tr>
                         );
                     })}
@@ -62,4 +60,4 @@ const ListarFacturas = () => {
     //----------------------------------------------------//
 }
 
-export default ListarFacturas;
+export default ListarProductos;
