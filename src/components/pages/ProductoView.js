@@ -27,7 +27,7 @@ const ListarProductos = () => {
     //Se devuelve el HTML de List
     return (
         <div>
-            <table>
+            <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
