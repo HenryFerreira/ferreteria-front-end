@@ -28,7 +28,7 @@ const ListarFacturas = () => {
     //Se devuelve el HTML de List
     return (
         <div>
-            <table class="table table-dark table-striped">
+            <table class="table table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
