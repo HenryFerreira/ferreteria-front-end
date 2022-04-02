@@ -1,9 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { URL_BASE } from '../../config';
+import Productos from './ProductoList';
 
 const ListarProductos = () => {
-    const [productos, setProductos] = useState([]);
+    const [inventario, setInventario] = useState([]);
 
     useEffect(() => {
         cargarFacturas();
@@ -16,10 +17,10 @@ const ListarProductos = () => {
             headers: { 'Content-Type': 'application/json' },
         };
 
-        fetch(URL_BASE + "/inventario", requestOptions)
+        fetch(URL_BASE + "/inventarioProductos", requestOptions)
             .then(response => response.json())
             .then((p) => {
-                setProductos(p);
+                setInventario(p);
             });
     }
 
@@ -31,25 +32,25 @@ const ListarProductos = () => {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Precio</th>
-                        <th>Proveedor</th>
+                        <th>Cantidad Actual</th>
+                        <th>Cantidad Máxima</th>
+                        <th>Cantidad Mínima</th>
+                        <th>Producto</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {productos.map((producto) => {
+                    {inventario.map((producto) => {
                         return (
                             <tr>
-                                <td>{producto.productoID}</td>
-                                <td>{producto.nombre}</td>
-                                <td>{producto.precio}</td>
+                                <td>{producto.inventarioID}</td>
+                                <td>{producto.cantMaxima}</td>
+                                <td>{producto.cantidad}</td>
+                                <td>{producto.cantMinima}</td>
                                 <td>
-                                    <ul>
-                                        <li>{producto.proveedor.nombre}</li>
-                                        <li>{producto.proveedor.celular}</li>
-                                        <li>{producto.proveedor.documentoIdentidad}</li>                                        
-                                    </ul>
+                                   <Productos productos={producto.productos}/>
                                 </td>
+                                <td>{producto.cantidad <= producto.cantMinima? "CASI SIN STOCK" : "STOCK"}</td>
                             </tr>
                         );
                     })}
