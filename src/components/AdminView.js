@@ -7,6 +7,7 @@ import ListarFacturas from "./pages/FacturaView"
 import ListarProductos from "./pages/ProductoView";
 import ClienteInsert from "./pages/creation/ClienteInsert";
 import FacturaInsert from "./pages/creation/FacturaInsert";
+import ProductoInsert from "./pages/creation/ProductoInsert";
 
 function AdminView() {
   return (
@@ -30,7 +31,7 @@ function AdminView() {
                 {"  "}
                 <Link to="/factura/insert" className="link-success">Agregar Facturas</Link>
                 {"  "}
-                <Link to="/producto" className="link-success">Agregar Productos</Link>
+                <Link to="/producto/insert" className="link-success">Agregar Productos</Link>
               </div>
 
             </div>
@@ -43,6 +44,7 @@ function AdminView() {
             <Route path="/producto" element={<ListarProductos />} />
             <Route path="/cliente/insert" element={<ClienteInsert />} />
             <Route path="/factura/insert" element={<FacturaInsert />} />
+            <Route path="/producto/insert" element={<ProductoInsert />} />
           </Routes>
         </BrowserRouter>
       </div>
